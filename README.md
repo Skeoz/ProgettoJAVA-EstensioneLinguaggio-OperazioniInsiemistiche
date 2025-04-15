@@ -97,6 +97,7 @@ dichiarazione a livello annidato di `variable` con  un qualsiasi valore di inizi
 - se in `env` `exp1` si valuta in `val1` e `set2` si valuta in `val2`, allora in `env` Union exp1 exp2` si valuta in `SetValue(Set.union (toSet val1) (toSet val2)) 
 - se in `env` `exp` si valuta in `val` e `toBool val` è vero, allora in `env` l'esecuzione di `While(exp,block)` è equivalente all'esecuzione in `env2` di  `While(exp,block)`, dove `env2` è ottenuto dall'esecuzione in `env` di `block`. Se invece `toBool val` è falso, allora in `env` l'esecuzione di `While(exp,block)` restituisce `env` 
  - conversione in stringa dei valori di tipo set: se `s` è un valore di tipo set, allora la sua stampa produce la stringa `"setOfSize("+n+")"` dove `n` è la conversione in stringa della cardinalità di `s`
+  - uguaglianza tra valori di tipo set: due valori di tipo set sono uguali se e solo se rappresentano lo stesso insieme. **Nota bene**: gli elementi di un insieme **non** sono ordinati  
  
   *Note sull'iterazione di insiemi* `SetEnum(variable,exp1,exp2)`
   - la variabile `variable` per iterare sugli elementi dell'insieme `exp1` viene dichiarata in un nuovo livello più annidato ed è utilizzata esclusivamente per valutare l'espressione  `exp2` (ossia, lo scope è limitato alla sola espressione `exp2`)
