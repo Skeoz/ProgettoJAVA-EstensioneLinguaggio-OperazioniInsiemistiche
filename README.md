@@ -4,7 +4,7 @@ Questo repository contiene la mia implementazione del progetto finale per il cor
 
 Il progetto estende l'interprete Java sviluppato durante i laboratori del corso, aggiungendo il supporto per il tipo di dato `Set` (insiemi), operazioni insiemistiche, iteratori e il costrutto di controllo `while`. L'intera architettura della semantica statica (type-checking) e dinamica (valutazione) è stata rigorosamente implementata sfruttando il **Visitor Pattern**.
 
-## 🛠️ Estensioni Implementate
+## Estensioni Implementate
 
 Rispetto al linguaggio base del laboratorio, ho aggiunto il supporto per i seguenti costrutti e operazioni:
 
@@ -24,7 +24,7 @@ La grammatica è stata estesa per supportare nuove operazioni, gestendo corretta
 * **Operazioni Unarie:**
     * Cardinalità `#`: `# Exp` (Restituisce la dimensione dell'insieme).
 
-## 🚀 Utilizzo dell'Interprete da Riga di Comando
+## Utilizzo dell'Interprete da Riga di Comando
 
 L'interprete accetta i seguenti argomenti:
 
@@ -32,7 +32,7 @@ L'interprete accetta i seguenti argomenti:
 * `-o <filename>`: Scrive l'output sul file specificato (in assenza, usa lo standard output).
 * `-ntc`: Flag **No-Type-Checking**. Disabilita la fase di semantica statica ed esegue direttamente l'interprete dinamico. Utile per testare la robustezza dinamica o per eseguire programmi che fallirebbero il controllo dei tipi (es. insiemi con elementi di tipi misti).
 
-## 📂 Struttura della Repository
+## Struttura della Repository
 * `/src`: Contiene tutto il codice sorgente Java dell'interprete (Lexer, Parser, AST e Visitors).
 * `/semantics`: Contiene le specifiche formali della semantica statica e dinamica scritte in F# (`Semantics.fs`), fornite come riferimento per l'implementazione. Presente anche `Program.fs` per eseguire gli esempi tramite `dotnet run`.
 * `/tests`: Una suite completa di test-case per validare l'implementazione:
@@ -41,6 +41,6 @@ L'interprete accetta i seguenti argomenti:
     * `/failure/static-semantics`: Programmi che falliscono il type-checking ma che sollevano eccezioni dinamiche se avviati con `-ntc`.
     * `/failure/static-semantics-only`: Programmi scartati dal type-checker ma eseguibili con successo bypassando i controlli con `-ntc`.
 
-## 📋 Note Implementative
+## Note Implementative
 * **Immutabilità:** Le operazioni come Unione (`++`) e Differenza (`\`) restituiscono sempre *nuovi* valori set, garantendo l'immutabilità richiesta dal linguaggio.
 * **Visitor Pattern:** Separazione netta tra logica di parsing (AST) ed esecuzione. Il type-checking e la valutazione dinamica sono incapsulati in Visitor dedicati.
